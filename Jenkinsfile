@@ -1,5 +1,6 @@
 pipeline {
   agent any
+  
 
   stages {
     stage('Build') {
@@ -11,10 +12,10 @@ pipeline {
       steps {
         echo 'Testing...'
         snykSecurity(
-          snykInstallation: '<Your Snyk Installation Name>',
-          snykTokenId: '<Your Snyk API Token ID>',
+          snykInstallation: 'snyk@latest',
+          snykTokenId: 'synk-api-token',
           // place other optional parameters here, for example:
-          additionalArguments: '--all-projects --detection-depth=<DEPTH>'
+          additionalArguments: '--all-projects --detection-depth=5'
         )
       }
     }
